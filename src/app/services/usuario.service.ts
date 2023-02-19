@@ -10,6 +10,7 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
+  // https://reqres.in/
   getUser() {
     return this.http.get(`${this.url}/users?per_page=6`)
       .pipe(
