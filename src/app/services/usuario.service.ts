@@ -6,7 +6,7 @@ import { map } from "rxjs";
   providedIn: 'root'
 })
 export class UsuarioService {
-  private url: string = "https://reqres.in/apiasd";
+  private url: string = "https://reqres.in/api";
 
   constructor(private http: HttpClient) { }
 
