@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { createEffect } from '@ngrx/effects';
 import { Actions, ofType } from '@ngrx/effects';
 import * as userActions from '../actions/usuarios.actions';
-import { map, mergeMap } from 'rxjs'
+import { catchError, map, mergeMap, of } from 'rxjs'
 import { UsuarioService } from '../../services/usuario.service';
 
 @Injectable()
@@ -21,7 +21,8 @@ export class UsuariosEffects {
             mergeMap(
                 () => this.usuariosService.getUser() // Observable that I want to trigger
                     .pipe(
-                        map(users => userActions.cargarUsuariosSuccess({ usuarios: users }))
+                        map(users => userActions.cargarUsuariosSuccess({ usuarios: users })),
+                        catchError(error => of(userActions.cargarUsuariosError({ payload: error }))) // We use of to return an Observable
                     )
             )
         )
