@@ -13,6 +13,9 @@ import { appReducers } from './store/app.reducers';
 
 import { environment } from '../environments/environment.prod';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { UsuariosEffects } from './store/effects/usuarios.effects';
+import { EffectsArray } from './store/effects/index';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot(EffectsArray),
     StoreDevtoolsModule.instrument({
       logOnly: environment.production
-    })
+    })    
   ],
   providers: [],
   bootstrap: [AppComponent]
