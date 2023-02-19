@@ -11,8 +11,15 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   // https://reqres.in/
-  getUser() {
+  getUsers() {
     return this.http.get(`${this.url}/users?per_page=6&delay=3`)
+      .pipe(
+        map((resp: any) => resp["data"])
+      );
+  }
+
+  getUser(id: string) {
+    return this.http.get(`${this.url}/users/${id}`)
       .pipe(
         map((resp: any) => resp["data"])
       );

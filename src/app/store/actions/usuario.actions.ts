@@ -4,7 +4,6 @@ import { Usuario } from '../../models/usuario.model';
 export const cargarUsuario = createAction(
     '[Usuario] Cargar Usuario',
     props<{ id: string }>()
-
 );
 
 export const cargarUsuarioSuccess = createAction(

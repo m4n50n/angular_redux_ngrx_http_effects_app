@@ -3,14 +3,16 @@ import { cargarUsuario, cargarUsuarioSuccess, cargarUsuarioError } from '../acti
 import { Usuario } from '../../models/usuario.model';
 
 export interface UsuarioState {
-    users: Usuario[];
+    id: any,
+    user: any,
     loaded: boolean;
     loading: boolean;
     error: any;
 }
 
 export const usuarioInitialState: UsuarioState = {
-    users: [],
+    id: null,
+    user: null,
     loaded: false,
     loading: false,
     error: null
