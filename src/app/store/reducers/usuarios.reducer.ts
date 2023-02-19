@@ -16,7 +16,7 @@ export const usuariosInitialState: UsuariosState = {
     error: null
 }
 
-const _counterReducer = createReducer(
+const _usuariosReducer = createReducer(
     usuariosInitialState,
     on(cargarUsuarios, state => ({ ...state, loading: true })),
 
@@ -39,6 +39,6 @@ const _counterReducer = createReducer(
     )),
 );
 
-export function counterReducer(state: any, action: any) {
-    return _counterReducer(state, action);
+export function usuariosReducer(state: any, action: any) {
+    return _usuariosReducer(state, action);
 }

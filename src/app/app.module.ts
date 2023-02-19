@@ -7,6 +7,13 @@ import { UsuariosModule } from './usuarios/usuarios.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
 
+import { StoreModule } from '@ngrx/store';
+import { appReducers } from './store/app.reducers';
+
+
+import { environment } from '../environments/environment.prod';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -16,7 +23,11 @@ import { HttpClientModule } from '@angular/common/http'
     SharedModule,
     UsuariosModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(appReducers),
+    StoreDevtoolsModule.instrument({
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
