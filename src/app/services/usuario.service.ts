@@ -6,13 +6,13 @@ import { map } from "rxjs";
   providedIn: 'root'
 })
 export class UsuarioService {
-  private url: string = "https://reqres.in/apdddi";
+  private url: string = "https://reqres.in/apiasd";
 
   constructor(private http: HttpClient) { }
 
   // https://reqres.in/
   getUser() {
-    return this.http.get(`${this.url}/users?per_page=6`)
+    return this.http.get(`${this.url}/users?per_page=6&delay=3`)
       .pipe(
         map((resp: any) => resp["data"])
       );

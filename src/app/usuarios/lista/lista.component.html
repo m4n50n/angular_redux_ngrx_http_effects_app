@@ -1,4 +1,7 @@
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<h4 *ngIf="loading" class="text-info">Cargando ...</h4>
+<h4 *ngIf="error" class="text-danger">{{ error | json }}</h4>
+
+<div *ngIf="!loading" class="row row-cols-1 row-cols-md-3 g-4">
   <div *ngFor="let user of users" class="col">
     <div class="card h-100">
       <img [src]="user.avatar" class="card-img-top img-fluid" />
