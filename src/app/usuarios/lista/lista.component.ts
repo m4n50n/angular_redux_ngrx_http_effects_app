@@ -17,6 +17,10 @@ export class ListaComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(cargarUsuarios());
     
+    this.store.select("usuarios").subscribe(({ users }) => {
+      this.users = users;
+    })
+
     // this.userService.getUser().subscribe(users => {
     //   console.log("users", users);
     //   this.users = users;
